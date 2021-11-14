@@ -1,7 +1,14 @@
 import React from 'react';
 
+import Routes from './routes';
+import GlobalStyles from './styles';
+
 const App = () => {
-  return <div>teste</div>;
+  return (
+    <GlobalStyles>
+      <Routes />
+    </GlobalStyles>
+  );
 };
 
 export default App;
