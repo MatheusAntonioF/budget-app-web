@@ -5,7 +5,10 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { FiMail, FiEyeOff } from 'react-icons/fi';
 import * as yup from 'yup';
 
+import piggyBankIllustration from '../../assets/piggy-bank.svg';
+import Button from '../../components/Button';
 import Input from '../../components/Input';
+import { authenticateUser } from '../../services/modules/users';
 import { Container, Content } from './styles';
 
 interface IFormInputs {
@@ -29,11 +32,22 @@ const Auth: React.FC = () => {
     resolver: yupResolver(schemaSignInValidator),
   });
 
-  const onSubmit: SubmitHandler<IFormInputs> = data => console.log(data);
+  const onSubmit: SubmitHandler<IFormInputs> = async ({
+    email,
+    password,
+  }: IFormInputs) => {
+    try {
+      const { token } = await authenticateUser({ email, password });
+    } catch (err) {
+      console.log('err', err);
+    }
+  };
 
   return (
     <Container>
       <Content>
+        <img src={piggyBankIllustration} alt="Main Icon" />
+
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
             label="Email"
@@ -47,7 +61,7 @@ const Auth: React.FC = () => {
             {...register('password')}
             error={errors.password}
           />
-          <button type="submit">Enviar</button>
+          <Button type="submit">Enviar</Button>
         </form>
       </Content>
     </Container>

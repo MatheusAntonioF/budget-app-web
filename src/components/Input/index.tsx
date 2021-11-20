@@ -18,8 +18,6 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, IInputProps> = (
 ): JSX.Element => {
   const [inputFocus, setInputFocus] = useState(false);
 
-  console.log(inputFocus);
-
   return (
     <Container
       hasError={!!error && !inputFocus}

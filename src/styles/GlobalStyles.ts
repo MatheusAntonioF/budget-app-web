@@ -28,6 +28,10 @@ const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
   }
+
+  button {
+    border: 0;
+  }
 `;
 
 export { GlobalStyles };
