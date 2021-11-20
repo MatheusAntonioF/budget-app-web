@@ -8,6 +8,7 @@ import * as yup from 'yup';
 import piggyBankIllustration from '../../assets/piggy-bank.svg';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
+import { useToast } from '../../hooks/toast';
 import { authenticateUser } from '../../services/modules/users';
 import { Container, Content } from './styles';
 
@@ -24,6 +25,8 @@ const schemaSignInValidator = yup
   .required();
 
 const Auth: React.FC = () => {
+  const { addToast } = useToast();
+
   const {
     register,
     handleSubmit,
@@ -38,8 +41,14 @@ const Auth: React.FC = () => {
   }: IFormInputs) => {
     try {
       const { token } = await authenticateUser({ email, password });
+
+      throw new Error('teste');
     } catch (err) {
-      console.log('err', err);
+      addToast({
+        type: 'error',
+        title: 'Erro na autenticação',
+        description: 'Ocorreu um erro ao fazer login, cheque as credenciais',
+      });
     }
   };
 

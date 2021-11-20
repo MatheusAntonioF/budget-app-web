@@ -1,12 +1,15 @@
 import React from 'react';
 
+import AppProviders from './hooks';
 import Routes from './routes';
 import GlobalStyles from './styles';
 
 const App = (): JSX.Element => {
   return (
     <GlobalStyles>
-      <Routes />
+      <AppProviders>
+        <Routes />
+      </AppProviders>
     </GlobalStyles>
   );
 };
