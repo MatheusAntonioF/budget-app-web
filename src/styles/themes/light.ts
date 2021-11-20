@@ -1,5 +1,3 @@
-import {} from 'styled-components';
-
 const lightTheme = {
   colors: {
     primary: {
@@ -8,11 +6,11 @@ const lightTheme = {
     },
     red: {
       main: '#e1173f',
-      light: '#fce7eb',
+      light: '#fddede',
     },
     green: {
       main: '#0bcc56',
-      light: '#e6faee',
+      light: '#e6fffa',
     },
     grey: {
       dark: '#47484c',
