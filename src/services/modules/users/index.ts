@@ -1,5 +1,5 @@
 import { api } from '../../api';
-import { IUserCredentials, IUserAuthenticateResponse } from './dtos';
+import { IUserCredentials, IUserAuthenticateResponse, IUser } from './dtos';
 
 export async function authenticateUser({
   email,
@@ -9,6 +9,12 @@ export async function authenticateUser({
     email,
     password,
   });
+
+  return data;
+}
+
+export async function getLoggedUserProfile(): Promise<IUser> {
+  const { data } = await api.get('/auth/profile');
 
   return data;
 }

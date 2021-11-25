@@ -6,7 +6,7 @@ import React, {
   useState,
 } from 'react';
 
-import Toast from '../../components/Toast';
+import Toast from '../components/Toast';
 
 export interface IToastMessage {
   type: 'success' | 'error';
