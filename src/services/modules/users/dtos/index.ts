@@ -6,3 +6,9 @@ export interface IUserCredentials {
 export interface IUserAuthenticateResponse {
   token: string;
 }
+
+export interface IUser {
+  id: string;
+  name: string;
+  email: string;
+}
