@@ -10,10 +10,11 @@ type IInputProps = {
   icon?: IconType;
   name: string;
   error?: FieldError;
+  type?: string;
 };
 
 const Input: ForwardRefRenderFunction<HTMLInputElement, IInputProps> = (
-  { label, icon: Icon, name, error = null, ...rest },
+  { label, icon: Icon, name, error = null, type = 'text', ...rest },
   ref,
 ): JSX.Element => {
   const [inputFocus, setInputFocus] = useState(false);
@@ -31,7 +32,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, IInputProps> = (
             <Icon />
           </div>
         )}
-        <input ref={ref} name={name} {...rest} />
+        <input ref={ref} name={name} type={type} {...rest} />
       </Core>
       <div className="container-error">{error?.message}</div>
     </Container>

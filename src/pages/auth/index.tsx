@@ -59,6 +59,7 @@ const Auth: React.FC = () => {
           />
           <Input
             label="Senha"
+            type="password"
             icon={FiEyeOff}
             {...register('password')}
             error={errors.password}
