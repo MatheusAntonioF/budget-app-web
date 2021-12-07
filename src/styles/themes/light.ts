@@ -2,7 +2,7 @@ const lightTheme = {
   colors: {
     primary: {
       main: '#518fcd',
-      light: '#ebf2f9',
+      light: '#aed7ff',
     },
     red: {
       main: '#e1173f',

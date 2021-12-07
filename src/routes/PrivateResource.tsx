@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Navigate } from 'react-router-dom';
 
+import Navbar from '../components/Navbar';
 import { useAuth } from '../hooks/auth';
 
 interface IPrivateResourceProps {
@@ -13,7 +14,11 @@ const PrivateResource = ({ children }: IPrivateResourceProps): JSX.Element => {
     loggedUser: { id: loggedUserId },
   } = useAuth();
 
-  return loggedUserId ? children : <Navigate to="/" replace />;
+  return loggedUserId ? (
+    <Navbar>{children}</Navbar>
+  ) : (
+    <Navigate to="/" replace />
+  );
 };
 
 export default PrivateResource;

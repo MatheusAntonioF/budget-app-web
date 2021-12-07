@@ -1,32 +1,36 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 
 import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom';
 
-import { Auth, Dashboard } from '../pages';
 import PrivateResource from './PrivateResource';
 import RedirectResource from './RedirectResource';
+
+const Auth = lazy(() => import('../pages/auth'));
+const Dashboard = lazy(() => import('../pages/Dashboard'));
 
 const Routes: React.FC = () => {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route
-          path="/"
-          element={
-            <RedirectResource>
-              <Auth />
-            </RedirectResource>
-          }
-        />
-        <Route
-          path="/dashboard"
-          element={
-            <PrivateResource>
-              <Dashboard />
-            </PrivateResource>
-          }
-        />
-      </Switch>
+      <Suspense fallback={<div />}>
+        <Switch>
+          <Route
+            path="/"
+            element={
+              <RedirectResource>
+                <Auth />
+              </RedirectResource>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateResource>
+                <Dashboard />
+              </PrivateResource>
+            }
+          />
+        </Switch>
+      </Suspense>
     </BrowserRouter>
   );
 };
