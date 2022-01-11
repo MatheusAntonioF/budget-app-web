@@ -14,6 +14,14 @@ const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
   }
 
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme: { colors } }) => colors.primary.main}; 
+  }
+
   body {
     height: 100vh;
     width: 100vw;

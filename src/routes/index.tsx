@@ -5,7 +5,7 @@ import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom';
 import PrivateResource from './PrivateResource';
 import RedirectResource from './RedirectResource';
 
-const Auth = lazy(() => import('../pages/auth'));
+const Auth = lazy(() => import('../pages/Auth'));
 const Dashboard = lazy(() => import('../pages/Dashboard'));
 
 const Routes: React.FC = () => {

@@ -12,6 +12,9 @@ const lightTheme = {
       main: '#0bcc56',
       light: '#e6fffa',
     },
+    purple: {
+      main: '#7159c1',
+    },
     grey: {
       dark: '#47484c',
       main: '#6d6e71',

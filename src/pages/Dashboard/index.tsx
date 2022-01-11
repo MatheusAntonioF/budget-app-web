@@ -1,9 +1,20 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { AiOutlinePlus } from 'react-icons/ai';
+
+import { Container, ButtonCreateNewSpending } from './styles';
 
 const Dashboard: React.FC = () => {
-  return <h1>Dashboard</h1>;
+  return (
+    <>
+      <Container>
+        <h1>Dashboard</h1>
+      </Container>
+      <ButtonCreateNewSpending>
+        <AiOutlinePlus />
+      </ButtonCreateNewSpending>
+    </>
+  );
 };
 
 export default Dashboard;
