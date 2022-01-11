@@ -65,7 +65,7 @@ export const Core = styled.div`
   align-items: center;
   justify-content: flex-start;
 
-  border: 2px solid ${({ theme: { colors } }) => colors.grey.light};
+  border: 2px solid ${({ theme: { colors } }) => colors.gray.light};
 
   height: 35px;
   width: 100%;
@@ -91,7 +91,7 @@ export const Core = styled.div`
       width: 18px;
       height: 18px;
 
-      color: ${({ theme: { colors } }) => colors.grey.dark};
+      color: ${({ theme: { colors } }) => colors.gray.dark};
 
       transition: all 250ms ease-in;
     }
