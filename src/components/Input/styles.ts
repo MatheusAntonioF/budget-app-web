@@ -67,7 +67,7 @@ export const Core = styled.div`
 
   border: 2px solid ${({ theme: { colors } }) => colors.gray.light};
 
-  height: 35px;
+  height: 40px;
   width: 100%;
 
   border-radius: 5px;
@@ -103,11 +103,12 @@ export const Core = styled.div`
 
     background: inherit;
 
-    width: 100%;
+    width: 99%;
+    height: 100%;
 
     padding: 5px;
     padding-left: 10px;
-    margin-right: 2px;
+    margin: 0 auto 0 2px;
 
     transition: all 250ms ease-in;
   }
