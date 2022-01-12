@@ -23,7 +23,7 @@ const CurrencyInput = <T extends FieldValues>({
   placeholder,
   icon: Icon,
   ...rest
-}: ICurrencyInputProps<T>) => {
+}: ICurrencyInputProps<T>): JSX.Element => {
   const [inputFocus, setInputFocus] = useState(false);
 
   const {
@@ -57,7 +57,7 @@ const CurrencyInput = <T extends FieldValues>({
           onValueChange={value => onChange(value)}
         />
       </Core>
-      <div className="container-error">{error?.message}</div>
+      {!!error && <div className="container-error">{error?.message}</div>}
     </Container>
   );
 };
