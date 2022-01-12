@@ -15,7 +15,7 @@ const lightTheme = {
     purple: {
       main: '#7159c1',
     },
-    grey: {
+    gray: {
       dark: '#47484c',
       main: '#6d6e71',
       light: '#a7abac',

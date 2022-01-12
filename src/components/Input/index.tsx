@@ -5,16 +5,25 @@ import { IconType } from 'react-icons/lib';
 
 import { Container, Core } from './styles';
 
-type IInputProps = {
+interface IInputProps {
   label: string;
   icon?: IconType;
   name: string;
   error?: FieldError;
   type?: string;
-};
+  placeholder?: string;
+}
 
 const Input: ForwardRefRenderFunction<HTMLInputElement, IInputProps> = (
-  { label, icon: Icon, name, error = null, type = 'text', ...rest },
+  {
+    label,
+    icon: Icon,
+    name,
+    error = null,
+    placeholder,
+    type = 'text',
+    ...rest
+  },
   ref,
 ): JSX.Element => {
   const [inputFocus, setInputFocus] = useState(false);
@@ -32,7 +41,13 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, IInputProps> = (
             <Icon />
           </div>
         )}
-        <input ref={ref} name={name} type={type} {...rest} />
+        <input
+          ref={ref}
+          name={name}
+          type={type}
+          placeholder={placeholder}
+          {...rest}
+        />
       </Core>
       <div className="container-error">{error?.message}</div>
     </Container>

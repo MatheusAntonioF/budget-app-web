@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { lightTheme } from '../../styles/themes/light';
-import { Button } from './styles';
+import { Button as ButtonStyled } from './styles';
 
 export interface IButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -9,17 +9,17 @@ export interface IButtonProps
   width?: string;
 }
 
-const ButtonComponent: React.FC<IButtonProps> = ({
+const Button: React.FC<IButtonProps> = ({
   children,
   color = 'primary',
   width = '100%',
   ...rest
 }) => {
   return (
-    <Button width={width} color={color} {...rest}>
+    <ButtonStyled width={width} color={color} {...rest}>
       {children}
-    </Button>
+    </ButtonStyled>
   );
 };
 
-export default ButtonComponent;
+export default Button;
