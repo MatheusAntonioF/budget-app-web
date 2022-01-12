@@ -2,11 +2,20 @@ import React, { useCallback } from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import {
+  AiOutlineFontSize,
+  AiOutlineBulb,
+  AiOutlineDollarCircle,
+  AiOutlineCalendar,
+  AiOutlineSelect,
+} from 'react-icons/ai';
 import * as yup from 'yup';
 
 import Button from '../../../components/Button';
 import Input from '../../../components/Input';
 import CurrencyInput from '../../../components/Input/CurrencyInput';
+import Datepicker from '../../../components/Input/Datepicker';
+import Select from '../../../components/Input/Select';
 import Modal from '../../../components/Modal';
 import { Form } from './styles';
 
@@ -19,7 +28,7 @@ interface IFormInputs {
   description: string;
   value: number;
   date: Date;
-  category_id: number;
+  category_id: string;
 }
 
 const schemaCreateSpendingValidator = yup
@@ -53,23 +62,47 @@ const CreateNewSpending: React.FC<ICreateNewSpendingProps> = ({
       title="Novo lançamento"
     >
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Input label="Nome" {...register('name')} error={errors.name} />
+        <Input
+          label="Nome"
+          {...register('name')}
+          icon={AiOutlineFontSize}
+          error={errors.name}
+          placeholder="Nome do lançamento"
+        />
         <Input
           label="Descrição"
           {...register('description')}
+          icon={AiOutlineBulb}
           error={errors.description}
+          placeholder="Descrição do lançamento"
         />
-        <CurrencyInput
-          label="Valor"
-          name="value"
-          control={control}
-          placeholder="R$ 1.000"
-        />
-        <Input label="Data" {...register('date')} error={errors.date} />
-        <Input
+        <div className="input-group">
+          <div>
+            <CurrencyInput
+              label="Valor"
+              name="value"
+              control={control}
+              placeholder="R$ 1.000"
+              icon={AiOutlineDollarCircle}
+            />
+          </div>
+          <div>
+            <Datepicker
+              label="Data"
+              name="date"
+              control={control}
+              icon={AiOutlineCalendar}
+              placeholder="00/00/0000"
+            />
+          </div>
+        </div>
+        <Select
           label="Categoria"
-          {...register('category_id')}
-          error={errors.category_id}
+          name="category_id"
+          placeholder="Selecione uma categoria..."
+          options={[{ label: 'teste', value: 'teste' }]}
+          control={control}
+          icon={AiOutlineSelect}
         />
 
         <Button>Salvar</Button>
